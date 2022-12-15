@@ -11,6 +11,11 @@ function init() {
   bird = document.getElementsByClassName("layer-03")[0];
   window.addEventListener("mousemove", handleMove, false);
 
+  document.body.addEventListener("mouseleave", () => {
+    x = 0;
+    y = 0;
+  });
+
   function handleMove(e) {
     x = e.clientX - window.innerWidth / 2;
     y = e.clientY - window.innerHeight / 2;

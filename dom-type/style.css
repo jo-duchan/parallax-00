@@ -16,21 +16,60 @@ body {
 
 section {
   position: relative;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   width: 50vw;
   height: 50vw;
-  border-radius: 25vw;
-  background: #f8f8f8f8;
 }
 
-section [class^="layer-"] {
+.content-wraper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(175, 175, 175, 0.81) 100%
+  );
+  backdrop-filter: blur(3px);
+}
+
+.content-wraper [class^="layer-"] {
   position: absolute;
   width: 100%;
   /* will-change: transform; */
 }
 
-section div :is(img, video) {
+.content-wraper > div :is(img, video) {
   width: 100%;
+}
+
+.content-wraper .layer-04 img {
+  animation: layer-animate 4800ms ease-in-out infinite;
+}
+
+@keyframes layer-animate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(10px, 20px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+section h3 {
+  position: absolute;
+  font-size: 280px;
+  left: 49.5%;
+  top: -21%;
+  transform: translate3d(-50%, 0, 0);
+  color: #e8e8e8;
 }
