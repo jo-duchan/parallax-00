@@ -16,10 +16,21 @@ body {
 
 section {
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   width: 50vw;
+  height: 50vw;
+  border-radius: 25vw;
+  background: #f8f8f8f8;
+}
+
+section [class^="layer-"] {
+  position: absolute;
+  width: 100%;
+  /* will-change: transform; */
 }
 
 section div :is(img, video) {
-  position: absolute;
   width: 100%;
 }
