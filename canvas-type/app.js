@@ -8,11 +8,14 @@ class App {
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
     this.subContent = [
-      new SubContent("/assets/img-01.png", this.ctx),
-      new SubContent("/assets/img-02.png", this.ctx),
+      new SubContent("./assets/img-01.png", this.ctx, 0),
+      new SubContent("./assets/img-02.png", this.ctx, 1),
+      new SubContent("./assets/img-03.png", this.ctx, 2),
+      new SubContent("./assets/img-04.png", this.ctx, 3),
     ];
 
     window.addEventListener("resize", this.resize.bind(this), false);
+    window.addEventListener("mousemove", this.mouseMove.bind(this));
     this.resize();
 
     requestAnimationFrame(this.animation.bind(this));
@@ -25,10 +28,10 @@ class App {
     this.canvas.width = this.stageWidth * this.pixelRatio;
     this.canvas.height = this.stageHeight * this.pixelRatio;
     this.ctx.scale(this.pixelRatio, this.pixelRatio);
-    // this.subContent.resize(this.stageWidth, this.stageHeight);
+
     for (let i = 0; i < this.subContent.length; i++) {
-      this.subContent[i].resize(this.stageWidth, this.stageHeight);
-      console.log(this.subContent);
+      const item = this.subContent[i];
+      item.resize(this.stageWidth, this.stageHeight, i);
     }
   }
 
@@ -36,6 +39,10 @@ class App {
     requestAnimationFrame(this.animation.bind(this));
 
     // console.log("hi");
+  }
+
+  mouseMove(e) {
+    console.log(e.clientX, e.clientY);
   }
 }
 
