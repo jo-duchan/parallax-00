@@ -19,10 +19,8 @@ section {
   top: 55%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
-  width: 50vw;
-  height: 50vw;
-  max-width: 800px;
-  max-height: 800px;
+  width: clamp(320px, 50vw, 800px);
+  height: clamp(320px, 50vw, 800px);
 }
 
 .content-wraper {
@@ -74,4 +72,11 @@ section h3 {
   top: -21%;
   transform: translate3d(-50%, 0, 0);
   color: #e8e8e8;
+  user-select: none;
+}
+
+@media (max-width: 450px) {
+  section h3 {
+    font-size: 140px;
+  }
 }
