@@ -8,10 +8,10 @@ class App {
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
     this.subContent = [
-      new SubContent("./assets/img-01.png", this.ctx, 0),
-      new SubContent("./assets/img-02.png", this.ctx, 1),
-      new SubContent("./assets/img-03.png", this.ctx, 2),
-      new SubContent("./assets/img-04.png", this.ctx, 3),
+      new SubContent("./assets/img-01.png", this.ctx),
+      new SubContent("./assets/img-02.png", this.ctx),
+      new SubContent("./assets/img-03.png", this.ctx),
+      new SubContent("./assets/img-04.png", this.ctx),
     ];
 
     window.addEventListener("resize", this.resize.bind(this), false);
@@ -37,12 +37,11 @@ class App {
 
   animation(t) {
     requestAnimationFrame(this.animation.bind(this));
-
-    // console.log("hi");
+    this.resize();
   }
 
   mouseMove(e) {
-    console.log(e.clientX, e.clientY);
+    // console.log(e.clientX, e.clientY);
   }
 }
 

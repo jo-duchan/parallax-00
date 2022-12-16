@@ -1,7 +1,6 @@
 export class SubContent {
-  constructor(src, ctx, zIndx) {
+  constructor(src, ctx) {
     this.ctx = ctx;
-    this.zIndx = zIndx;
     this.isLoaded = false;
     this.imgPos = {
       x: 0,
@@ -12,20 +11,20 @@ export class SubContent {
     this.image = new Image();
     this.image.src = src;
     this.image.onload = () => {
-      //   if (!this.zIndx) return;
       this.isLoaded = true;
-      if (this.order === this.zIndx) {
-        console.log(this.order, this.zIndx);
-        this.drawImage();
-      }
+      //   if (this.order === this.zIndx) {
+      //     console.log(this.order, this.zIndx);
+      //     this.drawImage();
+      //   }
+      //   this.resize();
     };
   }
-  resize(stageWidth, stageHeight, order) {
+  resize(stageWidth, stageHeight) {
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
-    this.order = order;
     // this.drawImage();
-    if (this.isLoaded && this.order === this.zIndx) {
+    // if (this.isLoaded && this.order === this.zIndx) {
+    if (this.isLoaded) {
       this.drawImage();
     }
   }
