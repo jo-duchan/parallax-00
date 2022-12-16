@@ -21,6 +21,8 @@ section {
   transform: translate3d(-50%, -50%, 0);
   width: 50vw;
   height: 50vw;
+  max-width: 800px;
+  max-height: 800px;
 }
 
 .content-wraper {
