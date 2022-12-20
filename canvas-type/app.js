@@ -7,6 +7,8 @@ class App {
     document.body.appendChild(this.canvas);
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
+    this.video = document.querySelector("video");
+
     this.subContent = [
       new SubContent("./assets/img-01.png", this.ctx),
       new SubContent("./assets/img-02.png", this.ctx),
@@ -33,6 +35,7 @@ class App {
       const item = this.subContent[i];
       item.resize(this.stageWidth, this.stageHeight, i);
     }
+    this.ctx.drawImage(this.video, 0, 0, this.stageWidth, this.stageHeight);
   }
 
   animation(t) {
